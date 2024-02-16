@@ -15,10 +15,10 @@ class Batch:
         self.reference = ref
         self.sku = sku
         self.eta = eta
-        self.availiable_quantity = qty
+        self.available_quantity = qty
 
     def allocate(self, line: OrderLine):
-        self.availiable_quantity -= line.qty
+        self.available_quantity -= line.qty
 
     def can_allocate(self, line: OrderLine):
-        return self.sku == line.sku and self.availiable_quantity >= line.qty
+        return self.sku == line.sku and self.available_quantity >= line.qty
